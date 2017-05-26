@@ -1,0 +1,41 @@
+html
+  include templates/header-template
+  link(rel='stylesheet' href='css/create_account.css')
+  body
+    include templates/navbar-template
+    form(action='/sign_up_verification', method='POST')
+      .column.is-4.is-offset-4#register-margin
+        h1.title.has-text-centered
+          | Créer un compte
+        .box.not-so-dark#register-box
+          label.label.white Pseudo
+          p.control
+            input.input(placeholder='jsmith', type='text', name='pseudo')
+            if mauvais_pseudo
+              p.error Ce pseudo existe déjà.
+          label.label.white Email
+          p.control
+            input.input(placeholder='jsmith@example.org', type='text', name='email')
+            if mauvais_email
+              p.error Cet email est déjà utilisé.
+          hr
+          label.label.white Mot de passe
+          p.control
+            input.input(placeholder='●●●●●●●', type='password', name='mdp')
+          label.label.white Confirmation
+          p.control
+            input.input(placeholder='●●●●●●●', type='password', name='mdp_verif')
+            if mdp_non_corres
+              p.error Les mots de passe ne correspondent pas.
+            if mauvais_mdp
+              p.error Mot de passe trop court.
+          hr
+          
+          .flex-container
+            .flex-4
+            .flex-4
+              button(type='submit').button#button-register.orange S'inscrire
+            
+    
+
+    include templates/footer-template

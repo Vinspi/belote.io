@@ -1,0 +1,27 @@
+html
+  include templates/header-template
+  link(rel='stylesheet' href='css/connect_account.css')
+  
+  
+  body
+    include templates/navbar-template
+  
+    .column.is-4.is-offset-4#register-margin
+      h1.title.has-text-centered
+        | Se connecter
+      .box.not-so-dark#register-box
+        label.label.white Pseudo
+        p.control
+          input.input(placeholder='jsmith', type='text')
+        label.label.white Mot de passe
+        p.control
+          input.input(placeholder='●●●●●●●', type='password')
+        hr
+        .flex-container
+          .flex-4
+          .flex-4
+            button.button#button-register.orange Connexion
+          
+    
+
+    include templates/footer-template
